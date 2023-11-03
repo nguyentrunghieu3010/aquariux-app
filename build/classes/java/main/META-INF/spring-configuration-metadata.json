@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "application",
+      "type": "com.aquariux.crypto.config.ApplicationProperties",
+      "sourceType": "com.aquariux.crypto.config.ApplicationProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
