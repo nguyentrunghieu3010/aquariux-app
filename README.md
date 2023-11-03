@@ -38,3 +38,5 @@ Create a 10 seconds interval scheduler to retrieve the pricing from the source a
 ### Important note
 
 Please use git to keep track of your progress as you write your code. Perform an “initial  commit” at the start of the test, and perform an “end commit” at the end of the test.You  can zip your whole project or provide your Github repository url for us to check your code.
+
+### Important note
