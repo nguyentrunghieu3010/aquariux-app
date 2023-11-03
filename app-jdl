@@ -1,0 +1,130 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName aquariuxapp
+    blueprints []
+    buildTool gradle
+    cacheProvider ehcache
+    clientFramework angularX
+    clientPackageManager npm
+    clientTheme none
+    creationTimestamp 1699000133597
+    databaseType sql
+    devDatabaseType h2Memory
+    dtoSuffix DTO
+    enableGradleEnterprise false
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation false
+    gradleEnterpriseHost ""
+    jhiPrefix jhi
+    jhipsterVersion "7.9.4"
+    jwtSecretKey "MzE1M2Y4MGNhYzVlODYzZjRkNGVkNTA4OTFkNDJjYTljMThmM2U5YzY3MDA2M2Q0YTZhMDg2ZjdiYWM5NTcwNzYwYzZmZDQ4MjY1Mjc0Yzk5NjY3NzgyNTJlZDg2YTc1YTE0NDJlMGU2NjFlNTY3OGNkYzE0YzNlNThjMjc3ODY="
+    languages [en, fr]
+    messageBroker false
+    microfrontend false
+    microfrontends []
+    nativeLanguage en
+    otherModules []
+    packageName com.aquariux.crypto
+    prodDatabaseType postgresql
+    reactive false
+    searchEngine false
+    serverPort 8080
+    serviceDiscoveryType no
+    skipClient false
+    skipUserManagement false
+    testFrameworks []
+    websocket false
+    withAdminUi true
+  }
+
+  entities Country, Department, Employee, Job, JobHistory, Location, Region, Task
+}
+
+entity Country {
+  countryName String
+}
+entity Department {
+  departmentName String required
+}
+/**
+ * The Employee entity.
+ */
+entity Employee {
+  /**
+   * The firstname attribute.
+   */
+  firstName String
+  lastName String
+  email String
+  phoneNumber String
+  hireDate Instant
+  salary Long
+  commissionPct Long
+}
+entity Job {
+  jobTitle String
+  minSalary Long
+  maxSalary Long
+}
+entity JobHistory {
+  startDate Instant
+  endDate Instant
+  language Language
+}
+/**
+ * not an ignored comment
+ */
+entity Location {
+  streetAddress String
+  postalCode String
+  city String
+  stateProvince String
+}
+entity Region {
+  regionName String
+}
+/**
+ * Task entity.\n@author The JHipster team.
+ */
+entity Task {
+  title String
+  description String
+}
+enum Language {
+  FRENCH,
+  ENGLISH,
+  SPANISH
+}
+
+relationship OneToOne {
+  Country{region} to Region
+  Department{location} to Location
+  JobHistory{job} to Job
+  JobHistory{department} to Department
+  JobHistory{employee} to Employee
+  Location{country} to Country
+}
+relationship OneToMany {
+  /**
+   * A relationship
+   */
+  Department{employee} to
+  /**
+   * Another side of the same relationship
+   */
+  Employee{department}
+  Employee{job} to Job{employee}
+}
+relationship ManyToOne {
+  Employee{manager} to Employee
+}
+relationship ManyToMany {
+  Job{task(title)} to Task{job}
+}
+
+service Country, Department, JobHistory, Location, Region, Task with serviceImpl
+paginate Employee, JobHistory with infinite-scroll
+paginate Job with pagination
