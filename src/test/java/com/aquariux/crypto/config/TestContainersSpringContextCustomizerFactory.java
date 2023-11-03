@@ -37,7 +37,7 @@ public class TestContainersSpringContextCustomizerFactory implements ContextCust
                     if (null == prodTestContainer) {
                         try {
                             Class<? extends SqlTestContainer> containerClass = (Class<? extends SqlTestContainer>) Class.forName(
-                                this.getClass().getPackageName() + ".MsSqlTestContainer"
+                                this.getClass().getPackageName() + ".PostgreSqlTestContainer"
                             );
                             prodTestContainer = beanFactory.createBean(containerClass);
                             beanFactory.registerSingleton(containerClass.getName(), prodTestContainer);
