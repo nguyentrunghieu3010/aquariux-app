@@ -33,18 +33,14 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:sqlserver://localhost:1433;database=aquariuxapp;encrypt=false
-    username: SA
-    password: yourStrong(!)Password
+    url: jdbc:postgresql://localhost:5432/aquariuxapp
+    username: aquariuxapp
+    password:
     hikari:
       poolName: Hikari
       auto-commit: false
-      data-source-properties:
-        cachePrepStmts: true
-        prepStmtCacheSize: 250
-        prepStmtCacheSqlLimit: 2048
-        useServerPrepStmts: true
   jpa:
+    database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: prod
@@ -105,7 +101,7 @@ jhipster:
         # - In the JHipster Registry (which includes a Spring Cloud Config server)
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-        base64-secret: OTM3MjVkYjM3MDIyY2I3YjRmOTFiMTYyMzFmZmNmNmViYjFkMjM0ZmEzODljNjQyODY1NGU1ZDVjOWUxN2IxNjExMjAzNjkxNjBiOTYwZjVhOWQxYzQwNjE4MzgzNTA4N2M3ODEwOTc2OThlYzU4YWUwZjhkOWMwNTFhMTdmZmU=
+        base64-secret: MzE1M2Y4MGNhYzVlODYzZjRkNGVkNTA4OTFkNDJjYTljMThmM2U5YzY3MDA2M2Q0YTZhMDg2ZjdiYWM5NTcwNzYwYzZmZDQ4MjY1Mjc0Yzk5NjY3NzgyNTJlZDg2YTc1YTE0NDJlMGU2NjFlNTY3OGNkYzE0YzNlNThjMjc3ODY=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
