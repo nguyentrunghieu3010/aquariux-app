@@ -16,6 +16,7 @@ plugins {
     id "org.springframework.boot"
     id "com.google.cloud.tools.jib"
     id "com.gorylenko.gradle-git-properties"
+    id "com.github.node-gradle.node"
     id "org.liquibase.gradle"
     id "org.sonarqube"
     id "io.spring.nohttp"
@@ -227,7 +228,6 @@ dependencies {
     testRuntimeOnly "com.tngtech.archunit:archunit-junit5-engine:${archunitJunit5Version}"
     implementation "org.zalando:problem-spring-web"
     implementation "org.springframework.boot:spring-boot-starter-undertow"
-    implementation "org.springframework.boot:spring-boot-starter-websocket"
     implementation "io.jsonwebtoken:jjwt-api"
     if (!project.hasProperty("gae")) {
     runtimeOnly "io.jsonwebtoken:jjwt-impl"
@@ -239,7 +239,6 @@ dependencies {
     implementation "org.springframework.security:spring-security-data"
     implementation "io.micrometer:micrometer-registry-prometheus"
     implementation "io.dropwizard.metrics:metrics-core"
-    implementation "org.springframework.security:spring-security-messaging"
     liquibaseRuntime sourceSets.main.compileClasspath
     liquibaseRuntime "org.liquibase.ext:liquibase-hibernate5:${liquibaseHibernate5Version}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
@@ -265,6 +264,31 @@ wrapper {
     gradleVersion = "7.4.2"
 }
 
+task webapp_test(type: NpmTask, dependsOn: "npm_install") {
+    args = ["run", "webapp:test"]
+}
 
+if (project.hasProperty("nodeInstall")) {
+    node {
+        version = "16.17.0"
+        npmVersion = "8.19.1"
+        download = true
+    }
+
+    // Copy local node and npm to a fixed location for npmw
+    def fixedNode = tasks.register("fixedNode", Copy) {
+        from nodeSetup
+        into 'build/node'
+    }
+    tasks.named("nodeSetup").configure { finalizedBy fixedNode }
+
+    def fixedNpm = tasks.register("fixedNpm", Copy) {
+        from npmSetup
+        into 'build/node'
+    }
+    tasks.named("npmSetup").configure { finalizedBy fixedNpm }
+}
+
+test.dependsOn webapp_test
 compileJava.dependsOn processResources
 processResources.dependsOn bootBuildInfo
