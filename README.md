@@ -49,6 +49,14 @@ Please use git to keep track of your progress as you write your code. Perform an
 
 To build the final jar and optimize the aquariuxapp application for production, run:
 
+Modified java code
+
+```
+./gradlew
+```
+
+Modified front end code
+
 ```
 ./gradlew -x webapp
 npm start

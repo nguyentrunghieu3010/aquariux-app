@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-price-aggregate-heading" data-cy="PriceAggregateCreateUpdateHeading">Create or edit a Price Aggregate</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_symbolCrypto">Symbol Crypto</label>
+          <input
+            type="text"
+            class="form-control"
+            name="symbolCrypto"
+            id="field_symbolCrypto"
+            data-cy="symbolCrypto"
+            formControlName="symbolCrypto"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_bidPrice">Bid Price</label>
+          <input type="number" class="form-control" name="bidPrice" id="field_bidPrice" data-cy="bidPrice" formControlName="bidPrice" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_bidQty">Bid Qty</label>
+          <input type="number" class="form-control" name="bidQty" id="field_bidQty" data-cy="bidQty" formControlName="bidQty" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_askPrice">Ask Price</label>
+          <input type="number" class="form-control" name="askPrice" id="field_askPrice" data-cy="askPrice" formControlName="askPrice" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_askQty">Ask Qty</label>
+          <input type="number" class="form-control" name="askQty" id="field_askQty" data-cy="askQty" formControlName="askQty" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_sourceType">Source Type</label>
+          <select class="form-control" name="sourceType" formControlName="sourceType" id="field_sourceType" data-cy="sourceType">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let sourceType of sourceTypeValues" [value]="sourceType">sourceType</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

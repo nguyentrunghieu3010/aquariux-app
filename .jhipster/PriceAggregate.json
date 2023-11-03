@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20231103135253",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "price_aggregate",
+  "fields": [
+    {
+      "fieldName": "symbolCrypto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bidPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "bidQty",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "askPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "askQty",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "sourceType",
+      "fieldType": "SourceType",
+      "fieldValues": "BINANCE,HUOBI"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PriceAggregate",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}
