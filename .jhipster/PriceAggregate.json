@@ -1,5 +1,5 @@
 {
-  "applications": "*",
+  "applications": ["aquariuxapp"],
   "changelogDate": "20231103135253",
   "dto": "mapstruct",
   "embedded": false,
@@ -7,6 +7,10 @@
   "fields": [
     {
       "fieldName": "symbolCrypto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "symbol",
       "fieldType": "String"
     },
     {
@@ -23,6 +27,22 @@
     },
     {
       "fieldName": "askQty",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "bid",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "bidSize",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "ask",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "askSize",
       "fieldType": "Double"
     },
     {

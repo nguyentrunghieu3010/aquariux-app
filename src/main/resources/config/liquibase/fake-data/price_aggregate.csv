@@ -1,11 +1,11 @@
-id;symbol_crypto;bid_price;bid_qty;ask_price;ask_qty;source_type
-1;Beauty;55994;48865;63460;56212;HUOBI
-2;International;90954;53277;32415;34463;BINANCE
-3;Fresh Digitized;88155;53241;43673;95591;HUOBI
-4;protocol orange multi-tasking;69128;83663;25720;43288;BINANCE
-5;Sleek Unbranded;11681;14245;94644;70038;HUOBI
-6;SMS hack channels;92628;56562;58767;42735;BINANCE
-7;user-facing sticky Franc;70996;82879;36382;11494;HUOBI
-8;leverage Denar;38318;27939;7525;6688;HUOBI
-9;optimize Future methodology;34062;26352;72905;35007;HUOBI
-10;sexy Jewelery;7959;76585;34234;39091;BINANCE
+id;symbol_crypto;symbol;bid_price;bid_qty;ask_price;ask_qty;bid;bid_size;ask;ask_size;source_type
+1;Beauty;Borders Bedfordshire;68789;20197;90954;53277;32415;34463;1630;34630;BINANCE
+2;IB Digitized;Jamaica Poland Concrete;28042;66874;49956;69128;83663;25720;43288;39903;HUOBI
+3;Australia;Cross-group Quality bus;17710;76729;14643;43898;42632;19294;63089;92628;HUOBI
+4;supply-chains user-facing;salmon Handmade;82879;36382;11494;59878;36981;39589;17311;25624;HUOBI
+5;exuding Ergonomic;optimize Future methodology;34062;26352;72905;35007;56827;40400;36367;51350;BINANCE
+6;multi-byte;24/365 synergies Credit;80964;83643;72125;78950;30610;559;21225;22011;BINANCE
+7;Cambridgeshire Paradigm Rufiyaa;Practical Land;76945;18564;98904;68966;41847;71272;56098;50514;HUOBI
+8;software alliance;morph Response Paradigm;21906;80419;62347;9151;23638;13690;97282;24993;HUOBI
+9;Hat;monitor;19575;31247;78876;67953;65272;31210;91173;88617;BINANCE
+10;Corners multi-byte;Berkshire Integrated;35870;16651;36668;91565;55336;57726;26271;60179;HUOBI

@@ -7,19 +7,26 @@ export const sampleWithRequiredData: IPriceAggregate = {
 };
 
 export const sampleWithPartialData: IPriceAggregate = {
-  id: 3647,
-  bidPrice: 62222,
+  id: 77631,
+  symbol: 'capability Handcrafted aggregate',
+  askQty: 49244,
+  bidSize: 36767,
   sourceType: SourceType['BINANCE'],
 };
 
 export const sampleWithFullData: IPriceAggregate = {
-  id: 36693,
-  symbolCrypto: 'input Gloves',
-  bidPrice: 66900,
-  bidQty: 12542,
-  askPrice: 38191,
-  askQty: 20440,
-  sourceType: SourceType['HUOBI'],
+  id: 61450,
+  symbolCrypto: 'Brand',
+  symbol: 'blue',
+  bidPrice: 59166,
+  bidQty: 82782,
+  askPrice: 24315,
+  askQty: 72315,
+  bid: 53258,
+  bidSize: 15378,
+  ask: 86186,
+  askSize: 86947,
+  sourceType: SourceType['BINANCE'],
 };
 
 export const sampleWithNewData: NewPriceAggregate = {

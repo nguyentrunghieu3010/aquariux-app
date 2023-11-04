@@ -26,6 +26,9 @@ public class PriceAggregate implements Serializable {
     @Column(name = "symbol_crypto")
     private String symbolCrypto;
 
+    @Column(name = "symbol")
+    private String symbol;
+
     @Column(name = "bid_price")
     private Double bidPrice;
 
@@ -37,6 +40,18 @@ public class PriceAggregate implements Serializable {
 
     @Column(name = "ask_qty")
     private Double askQty;
+
+    @Column(name = "bid")
+    private Double bid;
+
+    @Column(name = "bid_size")
+    private Double bidSize;
+
+    @Column(name = "ask")
+    private Double ask;
+
+    @Column(name = "ask_size")
+    private Double askSize;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "source_type")
@@ -68,6 +83,19 @@ public class PriceAggregate implements Serializable {
 
     public void setSymbolCrypto(String symbolCrypto) {
         this.symbolCrypto = symbolCrypto;
+    }
+
+    public String getSymbol() {
+        return this.symbol;
+    }
+
+    public PriceAggregate symbol(String symbol) {
+        this.setSymbol(symbol);
+        return this;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public Double getBidPrice() {
@@ -122,6 +150,58 @@ public class PriceAggregate implements Serializable {
         this.askQty = askQty;
     }
 
+    public Double getBid() {
+        return this.bid;
+    }
+
+    public PriceAggregate bid(Double bid) {
+        this.setBid(bid);
+        return this;
+    }
+
+    public void setBid(Double bid) {
+        this.bid = bid;
+    }
+
+    public Double getBidSize() {
+        return this.bidSize;
+    }
+
+    public PriceAggregate bidSize(Double bidSize) {
+        this.setBidSize(bidSize);
+        return this;
+    }
+
+    public void setBidSize(Double bidSize) {
+        this.bidSize = bidSize;
+    }
+
+    public Double getAsk() {
+        return this.ask;
+    }
+
+    public PriceAggregate ask(Double ask) {
+        this.setAsk(ask);
+        return this;
+    }
+
+    public void setAsk(Double ask) {
+        this.ask = ask;
+    }
+
+    public Double getAskSize() {
+        return this.askSize;
+    }
+
+    public PriceAggregate askSize(Double askSize) {
+        this.setAskSize(askSize);
+        return this;
+    }
+
+    public void setAskSize(Double askSize) {
+        this.askSize = askSize;
+    }
+
     public SourceType getSourceType() {
         return this.sourceType;
     }
@@ -160,10 +240,15 @@ public class PriceAggregate implements Serializable {
         return "PriceAggregate{" +
             "id=" + getId() +
             ", symbolCrypto='" + getSymbolCrypto() + "'" +
+            ", symbol='" + getSymbol() + "'" +
             ", bidPrice=" + getBidPrice() +
             ", bidQty=" + getBidQty() +
             ", askPrice=" + getAskPrice() +
             ", askQty=" + getAskQty() +
+            ", bid=" + getBid() +
+            ", bidSize=" + getBidSize() +
+            ", ask=" + getAsk() +
+            ", askSize=" + getAskSize() +
             ", sourceType='" + getSourceType() + "'" +
             "}";
     }

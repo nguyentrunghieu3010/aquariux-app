@@ -35,6 +35,9 @@ class PriceAggregateResourceIT {
     private static final String DEFAULT_SYMBOL_CRYPTO = "AAAAAAAAAA";
     private static final String UPDATED_SYMBOL_CRYPTO = "BBBBBBBBBB";
 
+    private static final String DEFAULT_SYMBOL = "AAAAAAAAAA";
+    private static final String UPDATED_SYMBOL = "BBBBBBBBBB";
+
     private static final Double DEFAULT_BID_PRICE = 1D;
     private static final Double UPDATED_BID_PRICE = 2D;
 
@@ -46,6 +49,18 @@ class PriceAggregateResourceIT {
 
     private static final Double DEFAULT_ASK_QTY = 1D;
     private static final Double UPDATED_ASK_QTY = 2D;
+
+    private static final Double DEFAULT_BID = 1D;
+    private static final Double UPDATED_BID = 2D;
+
+    private static final Double DEFAULT_BID_SIZE = 1D;
+    private static final Double UPDATED_BID_SIZE = 2D;
+
+    private static final Double DEFAULT_ASK = 1D;
+    private static final Double UPDATED_ASK = 2D;
+
+    private static final Double DEFAULT_ASK_SIZE = 1D;
+    private static final Double UPDATED_ASK_SIZE = 2D;
 
     private static final SourceType DEFAULT_SOURCE_TYPE = SourceType.BINANCE;
     private static final SourceType UPDATED_SOURCE_TYPE = SourceType.HUOBI;
@@ -79,10 +94,15 @@ class PriceAggregateResourceIT {
     public static PriceAggregate createEntity(EntityManager em) {
         PriceAggregate priceAggregate = new PriceAggregate()
             .symbolCrypto(DEFAULT_SYMBOL_CRYPTO)
+            .symbol(DEFAULT_SYMBOL)
             .bidPrice(DEFAULT_BID_PRICE)
             .bidQty(DEFAULT_BID_QTY)
             .askPrice(DEFAULT_ASK_PRICE)
             .askQty(DEFAULT_ASK_QTY)
+            .bid(DEFAULT_BID)
+            .bidSize(DEFAULT_BID_SIZE)
+            .ask(DEFAULT_ASK)
+            .askSize(DEFAULT_ASK_SIZE)
             .sourceType(DEFAULT_SOURCE_TYPE);
         return priceAggregate;
     }
@@ -96,10 +116,15 @@ class PriceAggregateResourceIT {
     public static PriceAggregate createUpdatedEntity(EntityManager em) {
         PriceAggregate priceAggregate = new PriceAggregate()
             .symbolCrypto(UPDATED_SYMBOL_CRYPTO)
+            .symbol(UPDATED_SYMBOL)
             .bidPrice(UPDATED_BID_PRICE)
             .bidQty(UPDATED_BID_QTY)
             .askPrice(UPDATED_ASK_PRICE)
             .askQty(UPDATED_ASK_QTY)
+            .bid(UPDATED_BID)
+            .bidSize(UPDATED_BID_SIZE)
+            .ask(UPDATED_ASK)
+            .askSize(UPDATED_ASK_SIZE)
             .sourceType(UPDATED_SOURCE_TYPE);
         return priceAggregate;
     }
@@ -126,10 +151,15 @@ class PriceAggregateResourceIT {
         assertThat(priceAggregateList).hasSize(databaseSizeBeforeCreate + 1);
         PriceAggregate testPriceAggregate = priceAggregateList.get(priceAggregateList.size() - 1);
         assertThat(testPriceAggregate.getSymbolCrypto()).isEqualTo(DEFAULT_SYMBOL_CRYPTO);
+        assertThat(testPriceAggregate.getSymbol()).isEqualTo(DEFAULT_SYMBOL);
         assertThat(testPriceAggregate.getBidPrice()).isEqualTo(DEFAULT_BID_PRICE);
         assertThat(testPriceAggregate.getBidQty()).isEqualTo(DEFAULT_BID_QTY);
         assertThat(testPriceAggregate.getAskPrice()).isEqualTo(DEFAULT_ASK_PRICE);
         assertThat(testPriceAggregate.getAskQty()).isEqualTo(DEFAULT_ASK_QTY);
+        assertThat(testPriceAggregate.getBid()).isEqualTo(DEFAULT_BID);
+        assertThat(testPriceAggregate.getBidSize()).isEqualTo(DEFAULT_BID_SIZE);
+        assertThat(testPriceAggregate.getAsk()).isEqualTo(DEFAULT_ASK);
+        assertThat(testPriceAggregate.getAskSize()).isEqualTo(DEFAULT_ASK_SIZE);
         assertThat(testPriceAggregate.getSourceType()).isEqualTo(DEFAULT_SOURCE_TYPE);
     }
 
@@ -167,10 +197,15 @@ class PriceAggregateResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(priceAggregate.getId().intValue())))
             .andExpect(jsonPath("$.[*].symbolCrypto").value(hasItem(DEFAULT_SYMBOL_CRYPTO)))
+            .andExpect(jsonPath("$.[*].symbol").value(hasItem(DEFAULT_SYMBOL)))
             .andExpect(jsonPath("$.[*].bidPrice").value(hasItem(DEFAULT_BID_PRICE.doubleValue())))
             .andExpect(jsonPath("$.[*].bidQty").value(hasItem(DEFAULT_BID_QTY.doubleValue())))
             .andExpect(jsonPath("$.[*].askPrice").value(hasItem(DEFAULT_ASK_PRICE.doubleValue())))
             .andExpect(jsonPath("$.[*].askQty").value(hasItem(DEFAULT_ASK_QTY.doubleValue())))
+            .andExpect(jsonPath("$.[*].bid").value(hasItem(DEFAULT_BID.doubleValue())))
+            .andExpect(jsonPath("$.[*].bidSize").value(hasItem(DEFAULT_BID_SIZE.doubleValue())))
+            .andExpect(jsonPath("$.[*].ask").value(hasItem(DEFAULT_ASK.doubleValue())))
+            .andExpect(jsonPath("$.[*].askSize").value(hasItem(DEFAULT_ASK_SIZE.doubleValue())))
             .andExpect(jsonPath("$.[*].sourceType").value(hasItem(DEFAULT_SOURCE_TYPE.toString())));
     }
 
@@ -187,10 +222,15 @@ class PriceAggregateResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(priceAggregate.getId().intValue()))
             .andExpect(jsonPath("$.symbolCrypto").value(DEFAULT_SYMBOL_CRYPTO))
+            .andExpect(jsonPath("$.symbol").value(DEFAULT_SYMBOL))
             .andExpect(jsonPath("$.bidPrice").value(DEFAULT_BID_PRICE.doubleValue()))
             .andExpect(jsonPath("$.bidQty").value(DEFAULT_BID_QTY.doubleValue()))
             .andExpect(jsonPath("$.askPrice").value(DEFAULT_ASK_PRICE.doubleValue()))
             .andExpect(jsonPath("$.askQty").value(DEFAULT_ASK_QTY.doubleValue()))
+            .andExpect(jsonPath("$.bid").value(DEFAULT_BID.doubleValue()))
+            .andExpect(jsonPath("$.bidSize").value(DEFAULT_BID_SIZE.doubleValue()))
+            .andExpect(jsonPath("$.ask").value(DEFAULT_ASK.doubleValue()))
+            .andExpect(jsonPath("$.askSize").value(DEFAULT_ASK_SIZE.doubleValue()))
             .andExpect(jsonPath("$.sourceType").value(DEFAULT_SOURCE_TYPE.toString()));
     }
 
@@ -215,10 +255,15 @@ class PriceAggregateResourceIT {
         em.detach(updatedPriceAggregate);
         updatedPriceAggregate
             .symbolCrypto(UPDATED_SYMBOL_CRYPTO)
+            .symbol(UPDATED_SYMBOL)
             .bidPrice(UPDATED_BID_PRICE)
             .bidQty(UPDATED_BID_QTY)
             .askPrice(UPDATED_ASK_PRICE)
             .askQty(UPDATED_ASK_QTY)
+            .bid(UPDATED_BID)
+            .bidSize(UPDATED_BID_SIZE)
+            .ask(UPDATED_ASK)
+            .askSize(UPDATED_ASK_SIZE)
             .sourceType(UPDATED_SOURCE_TYPE);
         PriceAggregateDTO priceAggregateDTO = priceAggregateMapper.toDto(updatedPriceAggregate);
 
@@ -235,10 +280,15 @@ class PriceAggregateResourceIT {
         assertThat(priceAggregateList).hasSize(databaseSizeBeforeUpdate);
         PriceAggregate testPriceAggregate = priceAggregateList.get(priceAggregateList.size() - 1);
         assertThat(testPriceAggregate.getSymbolCrypto()).isEqualTo(UPDATED_SYMBOL_CRYPTO);
+        assertThat(testPriceAggregate.getSymbol()).isEqualTo(UPDATED_SYMBOL);
         assertThat(testPriceAggregate.getBidPrice()).isEqualTo(UPDATED_BID_PRICE);
         assertThat(testPriceAggregate.getBidQty()).isEqualTo(UPDATED_BID_QTY);
         assertThat(testPriceAggregate.getAskPrice()).isEqualTo(UPDATED_ASK_PRICE);
         assertThat(testPriceAggregate.getAskQty()).isEqualTo(UPDATED_ASK_QTY);
+        assertThat(testPriceAggregate.getBid()).isEqualTo(UPDATED_BID);
+        assertThat(testPriceAggregate.getBidSize()).isEqualTo(UPDATED_BID_SIZE);
+        assertThat(testPriceAggregate.getAsk()).isEqualTo(UPDATED_ASK);
+        assertThat(testPriceAggregate.getAskSize()).isEqualTo(UPDATED_ASK_SIZE);
         assertThat(testPriceAggregate.getSourceType()).isEqualTo(UPDATED_SOURCE_TYPE);
     }
 
@@ -323,8 +373,10 @@ class PriceAggregateResourceIT {
 
         partialUpdatedPriceAggregate
             .symbolCrypto(UPDATED_SYMBOL_CRYPTO)
-            .bidPrice(UPDATED_BID_PRICE)
+            .symbol(UPDATED_SYMBOL)
+            .askPrice(UPDATED_ASK_PRICE)
             .askQty(UPDATED_ASK_QTY)
+            .bidSize(UPDATED_BID_SIZE)
             .sourceType(UPDATED_SOURCE_TYPE);
 
         restPriceAggregateMockMvc
@@ -340,10 +392,15 @@ class PriceAggregateResourceIT {
         assertThat(priceAggregateList).hasSize(databaseSizeBeforeUpdate);
         PriceAggregate testPriceAggregate = priceAggregateList.get(priceAggregateList.size() - 1);
         assertThat(testPriceAggregate.getSymbolCrypto()).isEqualTo(UPDATED_SYMBOL_CRYPTO);
-        assertThat(testPriceAggregate.getBidPrice()).isEqualTo(UPDATED_BID_PRICE);
+        assertThat(testPriceAggregate.getSymbol()).isEqualTo(UPDATED_SYMBOL);
+        assertThat(testPriceAggregate.getBidPrice()).isEqualTo(DEFAULT_BID_PRICE);
         assertThat(testPriceAggregate.getBidQty()).isEqualTo(DEFAULT_BID_QTY);
-        assertThat(testPriceAggregate.getAskPrice()).isEqualTo(DEFAULT_ASK_PRICE);
+        assertThat(testPriceAggregate.getAskPrice()).isEqualTo(UPDATED_ASK_PRICE);
         assertThat(testPriceAggregate.getAskQty()).isEqualTo(UPDATED_ASK_QTY);
+        assertThat(testPriceAggregate.getBid()).isEqualTo(DEFAULT_BID);
+        assertThat(testPriceAggregate.getBidSize()).isEqualTo(UPDATED_BID_SIZE);
+        assertThat(testPriceAggregate.getAsk()).isEqualTo(DEFAULT_ASK);
+        assertThat(testPriceAggregate.getAskSize()).isEqualTo(DEFAULT_ASK_SIZE);
         assertThat(testPriceAggregate.getSourceType()).isEqualTo(UPDATED_SOURCE_TYPE);
     }
 
@@ -361,10 +418,15 @@ class PriceAggregateResourceIT {
 
         partialUpdatedPriceAggregate
             .symbolCrypto(UPDATED_SYMBOL_CRYPTO)
+            .symbol(UPDATED_SYMBOL)
             .bidPrice(UPDATED_BID_PRICE)
             .bidQty(UPDATED_BID_QTY)
             .askPrice(UPDATED_ASK_PRICE)
             .askQty(UPDATED_ASK_QTY)
+            .bid(UPDATED_BID)
+            .bidSize(UPDATED_BID_SIZE)
+            .ask(UPDATED_ASK)
+            .askSize(UPDATED_ASK_SIZE)
             .sourceType(UPDATED_SOURCE_TYPE);
 
         restPriceAggregateMockMvc
@@ -380,10 +442,15 @@ class PriceAggregateResourceIT {
         assertThat(priceAggregateList).hasSize(databaseSizeBeforeUpdate);
         PriceAggregate testPriceAggregate = priceAggregateList.get(priceAggregateList.size() - 1);
         assertThat(testPriceAggregate.getSymbolCrypto()).isEqualTo(UPDATED_SYMBOL_CRYPTO);
+        assertThat(testPriceAggregate.getSymbol()).isEqualTo(UPDATED_SYMBOL);
         assertThat(testPriceAggregate.getBidPrice()).isEqualTo(UPDATED_BID_PRICE);
         assertThat(testPriceAggregate.getBidQty()).isEqualTo(UPDATED_BID_QTY);
         assertThat(testPriceAggregate.getAskPrice()).isEqualTo(UPDATED_ASK_PRICE);
         assertThat(testPriceAggregate.getAskQty()).isEqualTo(UPDATED_ASK_QTY);
+        assertThat(testPriceAggregate.getBid()).isEqualTo(UPDATED_BID);
+        assertThat(testPriceAggregate.getBidSize()).isEqualTo(UPDATED_BID_SIZE);
+        assertThat(testPriceAggregate.getAsk()).isEqualTo(UPDATED_ASK);
+        assertThat(testPriceAggregate.getAskSize()).isEqualTo(UPDATED_ASK_SIZE);
         assertThat(testPriceAggregate.getSourceType()).isEqualTo(UPDATED_SOURCE_TYPE);
     }
 

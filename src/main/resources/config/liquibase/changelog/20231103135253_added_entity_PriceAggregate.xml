@@ -17,6 +17,9 @@
             <column name="symbol_crypto" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="symbol" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="bid_price" type="double">
                 <constraints nullable="true" />
             </column>
@@ -27,6 +30,18 @@
                 <constraints nullable="true" />
             </column>
             <column name="ask_qty" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="bid" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="bid_size" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="ask" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="ask_size" type="double">
                 <constraints nullable="true" />
             </column>
             <column name="source_type" type="varchar(255)">
@@ -54,10 +69,15 @@
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
             <column name="symbol_crypto" type="string"/>
+            <column name="symbol" type="string"/>
             <column name="bid_price" type="numeric"/>
             <column name="bid_qty" type="numeric"/>
             <column name="ask_price" type="numeric"/>
             <column name="ask_qty" type="numeric"/>
+            <column name="bid" type="numeric"/>
+            <column name="bid_size" type="numeric"/>
+            <column name="ask" type="numeric"/>
+            <column name="ask_size" type="numeric"/>
             <column name="source_type" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>

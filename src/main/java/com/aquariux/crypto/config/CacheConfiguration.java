@@ -60,6 +60,7 @@ public class CacheConfiguration {
             createCache(cm, com.aquariux.crypto.domain.Job.class.getName());
             createCache(cm, com.aquariux.crypto.domain.Job.class.getName() + ".tasks");
             createCache(cm, com.aquariux.crypto.domain.JobHistory.class.getName());
+            createCache(cm, com.aquariux.crypto.domain.PriceAggregate.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

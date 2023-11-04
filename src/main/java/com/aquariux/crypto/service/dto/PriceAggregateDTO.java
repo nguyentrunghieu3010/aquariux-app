@@ -14,6 +14,8 @@ public class PriceAggregateDTO implements Serializable {
 
     private String symbolCrypto;
 
+    private String symbol;
+
     private Double bidPrice;
 
     private Double bidQty;
@@ -21,6 +23,14 @@ public class PriceAggregateDTO implements Serializable {
     private Double askPrice;
 
     private Double askQty;
+
+    private Double bid;
+
+    private Double bidSize;
+
+    private Double ask;
+
+    private Double askSize;
 
     private SourceType sourceType;
 
@@ -38,6 +48,14 @@ public class PriceAggregateDTO implements Serializable {
 
     public void setSymbolCrypto(String symbolCrypto) {
         this.symbolCrypto = symbolCrypto;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public Double getBidPrice() {
@@ -70,6 +88,38 @@ public class PriceAggregateDTO implements Serializable {
 
     public void setAskQty(Double askQty) {
         this.askQty = askQty;
+    }
+
+    public Double getBid() {
+        return bid;
+    }
+
+    public void setBid(Double bid) {
+        this.bid = bid;
+    }
+
+    public Double getBidSize() {
+        return bidSize;
+    }
+
+    public void setBidSize(Double bidSize) {
+        this.bidSize = bidSize;
+    }
+
+    public Double getAsk() {
+        return ask;
+    }
+
+    public void setAsk(Double ask) {
+        this.ask = ask;
+    }
+
+    public Double getAskSize() {
+        return askSize;
+    }
+
+    public void setAskSize(Double askSize) {
+        this.askSize = askSize;
     }
 
     public SourceType getSourceType() {
@@ -107,10 +157,15 @@ public class PriceAggregateDTO implements Serializable {
         return "PriceAggregateDTO{" +
             "id=" + getId() +
             ", symbolCrypto='" + getSymbolCrypto() + "'" +
+            ", symbol='" + getSymbol() + "'" +
             ", bidPrice=" + getBidPrice() +
             ", bidQty=" + getBidQty() +
             ", askPrice=" + getAskPrice() +
             ", askQty=" + getAskQty() +
+            ", bid=" + getBid() +
+            ", bidSize=" + getBidSize() +
+            ", ask=" + getAsk() +
+            ", askSize=" + getAskSize() +
             ", sourceType='" + getSourceType() + "'" +
             "}";
     }

@@ -19,10 +19,15 @@ type PriceAggregateFormDefaults = Pick<NewPriceAggregate, 'id'>;
 type PriceAggregateFormGroupContent = {
   id: FormControl<IPriceAggregate['id'] | NewPriceAggregate['id']>;
   symbolCrypto: FormControl<IPriceAggregate['symbolCrypto']>;
+  symbol: FormControl<IPriceAggregate['symbol']>;
   bidPrice: FormControl<IPriceAggregate['bidPrice']>;
   bidQty: FormControl<IPriceAggregate['bidQty']>;
   askPrice: FormControl<IPriceAggregate['askPrice']>;
   askQty: FormControl<IPriceAggregate['askQty']>;
+  bid: FormControl<IPriceAggregate['bid']>;
+  bidSize: FormControl<IPriceAggregate['bidSize']>;
+  ask: FormControl<IPriceAggregate['ask']>;
+  askSize: FormControl<IPriceAggregate['askSize']>;
   sourceType: FormControl<IPriceAggregate['sourceType']>;
 };
 
@@ -44,10 +49,15 @@ export class PriceAggregateFormService {
         }
       ),
       symbolCrypto: new FormControl(priceAggregateRawValue.symbolCrypto),
+      symbol: new FormControl(priceAggregateRawValue.symbol),
       bidPrice: new FormControl(priceAggregateRawValue.bidPrice),
       bidQty: new FormControl(priceAggregateRawValue.bidQty),
       askPrice: new FormControl(priceAggregateRawValue.askPrice),
       askQty: new FormControl(priceAggregateRawValue.askQty),
+      bid: new FormControl(priceAggregateRawValue.bid),
+      bidSize: new FormControl(priceAggregateRawValue.bidSize),
+      ask: new FormControl(priceAggregateRawValue.ask),
+      askSize: new FormControl(priceAggregateRawValue.askSize),
       sourceType: new FormControl(priceAggregateRawValue.sourceType),
     });
   }

@@ -44,6 +44,12 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
+          <th scope="col" jhiSortBy="symbol">
+            <div class="d-flex">
+              <span>Symbol</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
           <th scope="col" jhiSortBy="bidPrice">
             <div class="d-flex">
               <span>Bid Price</span>
@@ -68,6 +74,30 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
+          <th scope="col" jhiSortBy="bid">
+            <div class="d-flex">
+              <span>Bid</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bidSize">
+            <div class="d-flex">
+              <span>Bid Size</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ask">
+            <div class="d-flex">
+              <span>Ask</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="askSize">
+            <div class="d-flex">
+              <span>Ask Size</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
           <th scope="col" jhiSortBy="sourceType">
             <div class="d-flex">
               <span>Source Type</span>
@@ -83,10 +113,15 @@
             <a [routerLink]="['/price-aggregate', priceAggregate.id, 'view']">{{ priceAggregate.id }}</a>
           </td>
           <td>{{ priceAggregate.symbolCrypto }}</td>
+          <td>{{ priceAggregate.symbol }}</td>
           <td>{{ priceAggregate.bidPrice }}</td>
           <td>{{ priceAggregate.bidQty }}</td>
           <td>{{ priceAggregate.askPrice }}</td>
           <td>{{ priceAggregate.askQty }}</td>
+          <td>{{ priceAggregate.bid }}</td>
+          <td>{{ priceAggregate.bidSize }}</td>
+          <td>{{ priceAggregate.ask }}</td>
+          <td>{{ priceAggregate.askSize }}</td>
           <td>{{ priceAggregate.sourceType }}</td>
           <td class="text-end">
             <div class="btn-group">

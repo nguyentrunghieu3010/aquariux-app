@@ -95,5 +95,9 @@ docker-compose -f src/main/docker/app.yml up -d
 ```
 
 ```
-    jhipster export-jdl aquariuxapp-jdl-v01
+jhipster jdl aquariuxapp-jdl.jdl
+```
+
+```
+jhipster export-jdl aquariuxapp-jdl-v01
 ```

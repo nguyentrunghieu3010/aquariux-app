@@ -1,11 +1,9 @@
 package com.aquariux.crypto.scheduling;
 
-import com.aquariux.crypto.repository.CountryRepository;
 import com.aquariux.crypto.service.APIBinanceCryptoClient;
+import com.aquariux.crypto.service.PriceAggregateService;
 import com.aquariux.crypto.service.dto.PriceAggregateDTO;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,10 +11,12 @@ public class TestService {
 
     private long delay = 0;
 
-    private APIBinanceCryptoClient apiBinanceCryptoClient;
+    //    private final PriceAggregateService priceAggregateService;
+    private final APIBinanceCryptoClient apiBinanceCryptoClient;
 
-    public TestService(APIBinanceCryptoClient countryRepository) {
-        this.apiBinanceCryptoClient = countryRepository;
+    public TestService(APIBinanceCryptoClient apiBinanceCryptoClient) {
+        //        this.priceAggregateService = priceAggregateService;
+        this.apiBinanceCryptoClient = apiBinanceCryptoClient;
     }
 
     public long getDelay() {
@@ -27,8 +27,12 @@ public class TestService {
 
     public void tick() {
         final long now = System.currentTimeMillis() / 1000;
-        List<PriceAggregateDTO> priceAggregateDTO = apiBinanceCryptoClient.retrieveBinanceTicker();
-        System.out.println("Price Aggregation schedule tasks with dynamic delay - priceAggregateDTO " + priceAggregateDTO.get(0));
+        List<PriceAggregateDTO> binanceCryptoResponse = apiBinanceCryptoClient.retrieveBinanceTicker();
+
+        for (PriceAggregateDTO aggregateDTO : binanceCryptoResponse) {
+            System.out.println("Price Aggregation schedule tasks with dynamic delay - Binance Crypto Data " + aggregateDTO);
+            //            priceAggregateService.save(aggregateDTO);
+        }
         System.out.println("Price Aggregation schedule tasks with dynamic delay - " + now);
     }
 }

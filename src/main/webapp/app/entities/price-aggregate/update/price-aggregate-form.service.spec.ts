@@ -21,10 +21,15 @@ describe('PriceAggregate Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             symbolCrypto: expect.any(Object),
+            symbol: expect.any(Object),
             bidPrice: expect.any(Object),
             bidQty: expect.any(Object),
             askPrice: expect.any(Object),
             askQty: expect.any(Object),
+            bid: expect.any(Object),
+            bidSize: expect.any(Object),
+            ask: expect.any(Object),
+            askSize: expect.any(Object),
             sourceType: expect.any(Object),
           })
         );
@@ -37,10 +42,15 @@ describe('PriceAggregate Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             symbolCrypto: expect.any(Object),
+            symbol: expect.any(Object),
             bidPrice: expect.any(Object),
             bidQty: expect.any(Object),
             askPrice: expect.any(Object),
             askQty: expect.any(Object),
+            bid: expect.any(Object),
+            bidSize: expect.any(Object),
+            ask: expect.any(Object),
+            askSize: expect.any(Object),
             sourceType: expect.any(Object),
           })
         );

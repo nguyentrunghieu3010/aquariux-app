@@ -4,6 +4,7 @@ import com.aquariux.crypto.domain.PriceAggregate;
 import com.aquariux.crypto.repository.PriceAggregateRepository;
 import com.aquariux.crypto.service.dto.PriceAggregateDTO;
 import com.aquariux.crypto.service.mapper.PriceAggregateMapper;
+import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +24,18 @@ public class PriceAggregateService {
 
     private final PriceAggregateRepository priceAggregateRepository;
 
+    private final APIBinanceCryptoClient apiBinanceCryptoClient;
+
     private final PriceAggregateMapper priceAggregateMapper;
 
-    public PriceAggregateService(PriceAggregateRepository priceAggregateRepository, PriceAggregateMapper priceAggregateMapper) {
+    public PriceAggregateService(
+        PriceAggregateRepository priceAggregateRepository,
+        PriceAggregateMapper priceAggregateMapper,
+        APIBinanceCryptoClient apiBinanceCryptoClient
+    ) {
         this.priceAggregateRepository = priceAggregateRepository;
         this.priceAggregateMapper = priceAggregateMapper;
+        this.apiBinanceCryptoClient = apiBinanceCryptoClient;
     }
 
     /**
@@ -38,7 +46,8 @@ public class PriceAggregateService {
      */
     public PriceAggregateDTO save(PriceAggregateDTO priceAggregateDTO) {
         log.debug("Request to save PriceAggregate : {}", priceAggregateDTO);
-        PriceAggregate priceAggregate = priceAggregateMapper.toEntity(priceAggregateDTO);
+        List<PriceAggregateDTO> priceAggregateBinance = apiBinanceCryptoClient.retrieveBinanceTicker();
+        PriceAggregate priceAggregate = priceAggregateMapper.toEntity(priceAggregateBinance.get(0));
         priceAggregate = priceAggregateRepository.save(priceAggregate);
         return priceAggregateMapper.toDto(priceAggregate);
     }
