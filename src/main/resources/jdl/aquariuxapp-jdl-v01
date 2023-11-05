@@ -39,23 +39,5 @@ application {
     websocket false
     withAdminUi true
   }
-
-  entities PriceAggregate
 }
 
-entity PriceAggregate {
-  symbolCrypto String
-  bidPrice Double
-  bidQty Double
-  askPrice Double
-  askQty Double
-  sourceType SourceType
-}
-enum SourceType {
-  BINANCE,
-  HUOBI
-}
-
-dto PriceAggregate with mapstruct
-paginate PriceAggregate with pagination
-service PriceAggregate with serviceClass

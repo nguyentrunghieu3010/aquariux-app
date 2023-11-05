@@ -45,10 +45,15 @@ application {
 
 entity PriceAggregate {
   symbolCrypto String
+  symbol String
   bidPrice Double
   bidQty Double
   askPrice Double
   askQty Double
+  bid Double
+  bidSize Double
+  ask Double
+  askSize Double
   sourceType SourceType
 }
 enum SourceType {

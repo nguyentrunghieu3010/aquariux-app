@@ -49,6 +49,14 @@ Please use git to keep track of your progress as you write your code. Perform an
 
 To build the final jar and optimize the aquariuxapp application for production, run:
 
+Modified java code
+
+```
+./gradlew
+```
+
+Modified front end code
+
 ```
 ./gradlew -x webapp
 npm start
@@ -87,5 +95,9 @@ docker-compose -f src/main/docker/app.yml up -d
 ```
 
 ```
-    jhipster export-jdl aquariuxapp-jdl-v01
+jhipster jdl aquariuxapp-jdl.jdl
+```
+
+```
+jhipster export-jdl aquariuxapp-jdl-v01
 ```

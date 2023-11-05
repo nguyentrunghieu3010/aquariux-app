@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="priceAggregate">
+      <h2 data-cy="priceAggregateDetailsHeading"><span>Price Aggregate</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ priceAggregate.id }}</span>
+        </dd>
+        <dt><span>Symbol Crypto</span></dt>
+        <dd>
+          <span>{{ priceAggregate.symbolCrypto }}</span>
+        </dd>
+        <dt><span>Symbol</span></dt>
+        <dd>
+          <span>{{ priceAggregate.symbol }}</span>
+        </dd>
+        <dt><span>Bid Price</span></dt>
+        <dd>
+          <span>{{ priceAggregate.bidPrice }}</span>
+        </dd>
+        <dt><span>Bid Qty</span></dt>
+        <dd>
+          <span>{{ priceAggregate.bidQty }}</span>
+        </dd>
+        <dt><span>Ask Price</span></dt>
+        <dd>
+          <span>{{ priceAggregate.askPrice }}</span>
+        </dd>
+        <dt><span>Ask Qty</span></dt>
+        <dd>
+          <span>{{ priceAggregate.askQty }}</span>
+        </dd>
+        <dt><span>Bid</span></dt>
+        <dd>
+          <span>{{ priceAggregate.bid }}</span>
+        </dd>
+        <dt><span>Bid Size</span></dt>
+        <dd>
+          <span>{{ priceAggregate.bidSize }}</span>
+        </dd>
+        <dt><span>Ask</span></dt>
+        <dd>
+          <span>{{ priceAggregate.ask }}</span>
+        </dd>
+        <dt><span>Ask Size</span></dt>
+        <dd>
+          <span>{{ priceAggregate.askSize }}</span>
+        </dd>
+        <dt><span>Source Type</span></dt>
+        <dd>
+          <span>{{ priceAggregate.sourceType }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/price-aggregate', priceAggregate.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
