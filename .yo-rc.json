@@ -20,7 +20,7 @@
     "enableHibernateCache": true,
     "enableSwaggerCodegen": false,
     "enableTranslation": false,
-    "entities": ["Region", "Country", "Location", "Department", "Task", "Employee", "Job", "JobHistory", "PriceAggregate"],
+    "entities": ["PriceAggregate"],
     "entitySuffix": "",
     "gradleEnterpriseHost": "",
     "jhiPrefix": "jhi",

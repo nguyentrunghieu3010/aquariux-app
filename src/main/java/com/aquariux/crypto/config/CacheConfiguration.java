@@ -48,18 +48,6 @@ public class CacheConfiguration {
             createCache(cm, com.aquariux.crypto.domain.User.class.getName());
             createCache(cm, com.aquariux.crypto.domain.Authority.class.getName());
             createCache(cm, com.aquariux.crypto.domain.User.class.getName() + ".authorities");
-            createCache(cm, com.aquariux.crypto.domain.Region.class.getName());
-            createCache(cm, com.aquariux.crypto.domain.Country.class.getName());
-            createCache(cm, com.aquariux.crypto.domain.Location.class.getName());
-            createCache(cm, com.aquariux.crypto.domain.Department.class.getName());
-            createCache(cm, com.aquariux.crypto.domain.Department.class.getName() + ".employees");
-            createCache(cm, com.aquariux.crypto.domain.Task.class.getName());
-            createCache(cm, com.aquariux.crypto.domain.Task.class.getName() + ".jobs");
-            createCache(cm, com.aquariux.crypto.domain.Employee.class.getName());
-            createCache(cm, com.aquariux.crypto.domain.Employee.class.getName() + ".jobs");
-            createCache(cm, com.aquariux.crypto.domain.Job.class.getName());
-            createCache(cm, com.aquariux.crypto.domain.Job.class.getName() + ".tasks");
-            createCache(cm, com.aquariux.crypto.domain.JobHistory.class.getName());
             createCache(cm, com.aquariux.crypto.domain.PriceAggregate.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
